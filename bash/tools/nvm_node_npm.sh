@@ -21,6 +21,14 @@ check_node_installed() {
     fi
 }
 
+check_yarn_installed() {
+    if ! command -v yarn &>/dev/null; then
+        return 1
+    else
+        return 0
+    fi
+}
+
 if check_nvm_installed; then
     completeMessage "nvm is already installed."
 else
@@ -57,4 +65,19 @@ else
     node_version=$(node -v)
 
     completeMessage "Node.js installed successfully! Version: $node_version"
+fi
+
+# install yarn
+
+if check_yarn_installed; then
+    completeMessage "Yarn is already installed."
+else
+    infoMessage "Installing Yarn..."
+
+    npm install --global yarn
+
+    # check the yarn version and store it in a variable
+    yarn_version=$(yarn -v)
+
+    completeMessage "Yarn installed successfully! Version: $yarn_version"
 fi
