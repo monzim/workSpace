@@ -1,0 +1,20 @@
+---
+- name: Check OS Family
+  command: "uname"
+  register: os_result
+
+- name: Install Git on Linux using apt
+  block:
+    - name: Install Git using apt
+      apt:
+        name: "{{ git_package_name }}"
+        state: present
+  when: "'Linux' in os_result.stdout"
+
+- name: Install Git on macOS using homebrew
+  block:
+    - name: Install Git using homebrew
+      homebrew:
+        name: "{{ git_package_name }}"
+        state: present
+  when: "'Darwin' in os_result.stdout"
