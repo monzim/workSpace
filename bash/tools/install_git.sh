@@ -14,7 +14,7 @@ check_git_installed() {
 }
 
 if check_git_installed; then
-    completeMessage $GREEN "$SUCCESS" "Git is already installed."
+    completeMessage "Git is already installed."
 else
     infoMessage "Installing Git..."
 

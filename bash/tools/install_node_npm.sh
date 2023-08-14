@@ -22,7 +22,7 @@ check_node_installed() {
 }
 
 if check_nvm_installed; then
-    completeMessage $GREEN "$SUCCESS" "nvm is already installed."
+    completeMessage "nvm is already installed."
 else
     infoMessage "Installing nvm for Node.js..."
 
@@ -47,7 +47,7 @@ fi
 
 # install the latest version of Node.js
 if check_node_installed; then
-    completeMessage $GREEN "$SUCCESS" "Node.js is already installed."
+    completeMessage "Node.js is already installed."
 else
     infoMessage "Installing Node.js..."
 
