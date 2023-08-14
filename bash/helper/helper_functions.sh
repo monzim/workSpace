@@ -26,6 +26,7 @@ print_message() {
 }
 
 completeMessage() {
+    echo
     print_message "$GREEN" "$DONE" " $1"
 }
 

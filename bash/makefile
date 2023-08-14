@@ -1,1 +1,3 @@
-chmod +x install_dev_tools.sh tools_install/*.sh
+chmod +x install_dev_tools.sh tools/*.sh
+./install_dev_tools.sh
+
