@@ -1,5 +1,6 @@
 # roles/git/tasks/main.yml
 - include_tasks: ../check_os_family.yml
+
 - name: Set node version
   set_fact:
     nodejs_version: "20.5.1"
