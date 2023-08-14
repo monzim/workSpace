@@ -72,6 +72,13 @@ checkFlutterInstalled() {
 setupFlutter() {
     infoMessage "Setting up Flutter..."
 
+    if [ "$os_name" = "Linux" ]; then
+        sudo apt install -y file bash curl xz-utils zip cmake pkg-config libgtk-3-dev libblkid-dev liblzma-dev libzstd-dev clang ninja-build
+    elif [ "$os_name" = "Darwin" ]; then
+        brew install file bash curl unzip xz zip
+        sudo softwareupdate --install-rosetta --agree-to-license
+    fi
+
     # check if a directory named "Development" exists in the home directory
     if [ ! -d "$HOME/Development" ]; then
         mkdir "$HOME/Development"
@@ -91,13 +98,8 @@ setupFlutter() {
 
     # install addinoal tools for flutter
 
-    if [ "$os_name" = "Linux" ]; then
-        sudo apt install -y file bash curl xz-utils zip
-    elif [ "$os_name" = "Darwin" ]; then
-        brew install file bash curl unzip xz zip
-    fi
-
     # run flutter doctor
+    flutter precache
     flutter doctor -v
 }
 
