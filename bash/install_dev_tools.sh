@@ -14,16 +14,20 @@ install_debian_tools() {
     print_message $YELLOW "$INFO" "Updating apt-get..."
     sudo apt-get update
 
+    echo
+
     echo "Installing tools for Debian-based systems..."
     for tool_script in tools/*.sh; do
         bash "$tool_script" "$os_name"
+        echo
     done
     echo "Debian-based tools installed successfully!"
 }
 
 # Function to install tools on macOS
 install_macos_tools() {
-    print_message $YELLOW "$INFO" "Installing tools for macOS..."
+    print_message $YELLOW "$TASK" "Installing tools for macOS..."
+    echo
 
     # Install Homebrew (if not installed)
     if ! command -v brew &>/dev/null; then
@@ -33,6 +37,7 @@ install_macos_tools() {
 
     for tool_script in tools/*.sh; do
         bash "$tool_script" "$os_name"
+        echo
     done
     echo "macOS tools installed successfully!"
 }
