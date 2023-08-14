@@ -1,7 +1,7 @@
----
-- name: Check OS Family
-  command: "uname"
-  register: os_result
+- include_tasks: ../check_os_family.yml
+- name: Set Git package name based on OS
+  set_fact:
+    git_package_name: "git"
 
 - name: Install Git on Linux using apt
   block:

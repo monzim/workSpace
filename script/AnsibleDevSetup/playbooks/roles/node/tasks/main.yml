@@ -1,0 +1,30 @@
+# roles/git/tasks/main.yml
+- include_tasks: ../check_os_family.yml
+- name: Set node version
+  set_fact:
+    nodejs_version: "20.5.1"
+
+- name: Mac OS X | Install Node.js and npm on macOS using homebrew
+  block:
+    - name: Install Node.js and npm on macOS
+      when: "'Darwin' in os_result.stdout"
+      homebrew:
+        name: node
+        state: present
+
+# roles/node/tasks/main.yml
+
+- name: Linux | Install Node.js and npm on Debian using apt
+  block:
+    - name: Add Node.js repository on Debian
+      when: "'Linux' in os_result.stdout"
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_{{ nodejs_version }} {{ ansible_distribution_release }} main"
+        state: present
+        filename: "nodesource.list"
+
+    - name: Install Node.js and npm on Debian
+      when: "'Linux' in os_result.stdout"
+      apt:
+        name: nodejs
+        state: present

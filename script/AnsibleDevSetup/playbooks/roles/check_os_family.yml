@@ -1,0 +1,4 @@
+# tasks/check_os_family.yml
+- name: Check OS Family
+  command: "uname"
+  register: os_result
