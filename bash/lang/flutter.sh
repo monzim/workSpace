@@ -89,10 +89,9 @@ setupFlutter() {
         git clone https://github.com/flutter/flutter.git -b stable "$HOME/Development/flutter"
     fi
 
-    # add the flutter binary to the PATH
-    export PATH="$PATH:$HOME/Development/flutter/bin"
-    # add dart to the PATH
-    export PATH="$PATH:$HOME/Development/flutter/bin/cache/dart-sdk/bin"
+    # Flutter
+    export PATH="$PATH":"$HOME/Developer/flutter/bin"
+    export PATH="$PATH":"$HOME/.pub-cache/bin"
 
     reloadBash
 
