@@ -40,6 +40,6 @@ if check; then
     completeMessage "ohmyzsh is already installed."
 else
     infoMessage "Installing ohmyzsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
     completeMessage "ohmyzsh installed successfully!"
 fi
