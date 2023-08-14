@@ -122,6 +122,6 @@ cd script/AnsibleDevSetup/playbooks
 pwd
 print_message $YELLOW "$TASK" "Running Ansible Playbook..."
 
-ansible-playbook -i hosts setup_dev_environment.yml -k
+sudo ansible-playbook -i hosts setup_dev_environment.yml -k
 
 print_message $GREEN "$SUCCESS" "Ansible Playbook completed successfully!"
